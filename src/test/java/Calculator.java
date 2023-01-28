@@ -7,4 +7,13 @@ public class Calculator {
 		return a + b + c;
 	}
 
+	public int perform(int i, int j) {
+		return service.add(i, j) * i;
+	}
+
+	public Calculator(CalculatorService service) {
+		super();
+		this.service = service;
+	}
+
 }
