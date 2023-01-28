@@ -1,4 +1,7 @@
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,13 +16,15 @@ public class TestCalculator {
 
 	Calculator calculator = null;
 
-	CalculatorService service = new CalculatorService() {
+//	CalculatorService service = new CalculatorService() {
+//
+//		public int add(int i, int j) {
+//			// TODO Auto-generated method stub
+//			return i+j;
+//		}
+//	};
 
-		public int add(int i, int j) {
-			// TODO Auto-generated method stub
-			return i+j;
-		}
-	};
+	CalculatorService service = mock(CalculatorService.class);
 
 	@Before
 	public void setUp() {
@@ -28,7 +33,10 @@ public class TestCalculator {
 
 	@Test
 	public void testAdd() {
+		
+		when(service.add(2, 3)).thenReturn(5);		
 		assertEquals(10, calculator.perform(2, 3));
+		verify(service).add(2, 3);
 	}
 
 }
