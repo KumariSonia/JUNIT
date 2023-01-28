@@ -1,10 +1,13 @@
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 public class TestCalculator {
 	// Calculator calculator = new Calculator();
@@ -24,7 +27,14 @@ public class TestCalculator {
 //		}
 //	};
 
-	CalculatorService service = mock(CalculatorService.class);
+//	CalculatorService service = mock(CalculatorService.class);
+//
+
+	@Mock
+	CalculatorService service;
+
+	@Rule
+	public MockitoRule rule = MockitoJUnit.rule();
 
 	@Before
 	public void setUp() {
